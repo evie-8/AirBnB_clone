@@ -13,7 +13,9 @@ class BaseModel:
         """creating instances"""
         if kwargs:
             new_dicts = kwargs.copy()
-            del new_dicts["__class__"]
+            removed = "__class__"
+            if removed in new_dicts.keys():
+                del new_dicts["__class__"]
             style = "%Y-%m-%dT%H:%M:%S.%f"
             for k in new_dicts:
                 if k == "created_at" or k == "updated_at":
