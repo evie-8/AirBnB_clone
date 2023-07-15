@@ -3,7 +3,6 @@
 
 
 import json
-from models.base_model import Basemodel
 
 
 class FileStorage:
@@ -13,8 +12,6 @@ class FileStorage:
     __objects: a dictonary
     """
 
-    # def __init__(self):
-
     __file_path = "file.json"
     __objects = {}
 
@@ -22,10 +19,10 @@ class FileStorage:
         """returns the dictionary objects"""
         return self.__objects
 
-    def new(self, ojb):
+    def new(self, obj):
         """sets in __objects obj with the key <obj_class_name>.id"""
         k = "{}.{}".format(type(obj).__name__, obj.id)
-        Filestorage.__object[k] = obj
+        FileStorage.__objects[k] = obj
 
     def save(self):
         """Serialize __objects to the JSON file __file_path."""
