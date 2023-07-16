@@ -101,6 +101,52 @@ class Test_place_instance(unittest.TestCase):
         p2 = Place()
         self.assertNotEqual(p1.id, p2.id)
 
+    def test_str(self):
+        """checking output for __str__"""
+        b_1 = Place()
+        self.assertEqual(b_1.__str__(), "[" + b_1.__class__.__name__ + "]"
+                         " (" + b_1.id + ") " + str(b_1.__dict__))
+
+
+class TestBaseModelSave(unittest.TestCase):
+    """test class for save method"""
+
+    def setUp(self):
+        """method run ofor each test in class"""
+        with open("tests.json", 'w'):
+            FileStorage._FileStorage__file_path = "tests.json"
+            FileStorage._FileStorage__objects = {}
+
+    def tearDown(self):
+        """ destroys file for each test after running it"""
+        FileStorage._FileStorage__file_path = "file.json"
+        try:
+            os.remove("tests.json")
+        except FileNotFoundError:
+            pass
+
+    def test_save1(self):
+        """checking if updated_at times are different"""
+        base_4 = Place()
+        old = base_4.updated_at
+        base_4.save()
+        new = base_4.updated_at
+        self.assertLess(old, new)
+
+    def test_save2(self):
+        """test when none is passed"""
+        base_5 = Place()
+        with self.assertRaises(TypeError):
+            base_5.save(None)
+
+    def test_save3(self):
+        """test if instance is actually stored"""
+        b_2 = Place()
+        b_2.save()
+        b_id = "Place." + b_2.id
+        with open("tests.json", "r") as f:
+            self.assertIn(b_id, f.read())
+
 
 class TestPlace_to_dict(unittest.TestCase):
     """Unittests for testing to_dict method of the Place class."""
