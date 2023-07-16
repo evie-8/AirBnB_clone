@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://intranet.alxswe.com/
+HostUrl=https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20230711%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230711T090844Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=f5bc67b799795acd4e30d914d989cfa7fcceafe5400d5b0e85bb8c598ff6df4c
