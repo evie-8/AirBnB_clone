@@ -1,12 +1,11 @@
 #!/usr/bin/python3
 """Unittest module for the Amenity Class."""
 
+
 import unittest
 import pep8
 from datetime import datetime
-import time
 from models.amenity import Amenity
-import re
 import json
 from models.engine.file_storage import FileStorage
 import os
@@ -19,21 +18,29 @@ class Test_amenity_instances(unittest.TestCase):
     """ Unittest for testing the amnenity class"""
 
     def test_no_args(self):
+        """tests for class type"""
         self.assertEqual(Amenity, type(Amenity()))
 
     def test_id(self):
+        """tests for id type"""
         self.assertEqual(str, type(Amenity().id))
 
     def test_two_amenities_unique_ids(self):
+        """tests for unique ids"""
         a1 = Amenity()
         a2 = Amenity()
         self.assertNotEqual(a1.id, a2.id)
+
+    def test_name_attr(self):
+        """test fro name attribute"""
+        self.assertEqual(str, type(Amenity().name))
 
 
 class Test_amenity_to_dict(unittest.TestCase):
     """Unittests for testing to_dict method of the Amenity class."""
 
-    def test_name_attrinute(self):
+    def test_name_attribute(self):
+        """tests for name attribute"""
         a = Amenity()
         self.assertEqual(str, type(Amenity.name))
         self.assertIn("name", dir(Amenity()))

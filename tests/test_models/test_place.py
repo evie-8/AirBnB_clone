@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Unittest module for the Place Class."""
 
+
 import unittest
 import pep8
 from datetime import datetime
@@ -18,72 +19,84 @@ class Test_place_instance(unittest.TestCase):
     """Unittest for the place class"""
 
     def test_city_id_attribute(self):
+        """test for city id"""
         p = Place()
         self.assertEqual(str, type(Place.city_id))
         self.assertIn("city_id", dir(p))
         self.assertNotIn("city_id", p.__dict__)
 
     def test_user_id_attribute(self):
+        """tests for user id"""
         p = Place()
         self.assertEqual(str, type(Place.user_id))
         self.assertIn("user_id", dir(p))
         self.assertNotIn("user_id", p.__dict__)
 
     def test_name_attribute(self):
+        """tests for name attribute"""
         p = Place()
         self.assertEqual(str, type(Place.name))
         self.assertIn("name", dir(p))
         self.assertNotIn("name", p.__dict__)
 
     def test_description_attribute(self):
+        """tests for description attr"""
         p = Place()
         self.assertEqual(str, type(Place.description))
         self.assertIn("description", dir(p))
         self.assertNotIn("desctiption", p.__dict__)
 
     def test_number_rooms_attribute(self):
+        """tests for rooms"""
         p = Place()
         self.assertEqual(int, type(Place.number_rooms))
         self.assertIn("number_rooms", dir(p))
         self.assertNotIn("number_rooms", p.__dict__)
 
     def test_number_bathrooms_attribute(self):
+        """tests for bathrooms"""
         p = Place()
         self.assertEqual(int, type(Place.number_bathrooms))
         self.assertIn("number_bathrooms", dir(p))
         self.assertNotIn("number_bathrooms", p.__dict__)
 
     def test_max_guest_attribute(self):
+        """test for guests"""
         p = Place()
         self.assertEqual(int, type(Place.max_guest))
         self.assertIn("max_guest", dir(p))
         self.assertNotIn("max_guest", p.__dict__)
 
     def test_price_by_night_attribute(self):
+        """tests for price"""
         p = Place()
         self.assertEqual(int, type(Place.price_by_night))
         self.assertIn("price_by_night", dir(p))
         self.assertNotIn("price_by_night", p.__dict__)
 
     def test_latitude_attribute(self):
+        """tests for latitude"""
         p = Place()
         self.assertEqual(float, type(Place.latitude))
         self.assertIn("latitude", dir(p))
         self.assertNotIn("latitude", p.__dict__)
 
     def test_longitude__attribute(self):
+        """tests for longitude"""
         p = Place()
         self.assertEqual(float, type(Place.longitude))
         self.assertIn("longitude", dir(p))
         self.assertNotIn("longitude", p.__dict__)
 
     def test_amenity_ids_attribute(self):
+        """tests for amenity"""
         p = Place()
         self.assertEqual(list, type(Place.amenity_ids))
         self.assertIn("amenity_ids", dir(p))
         self.assertNotIn("amenity_ids", p.__dict__)
 
     def test_two_places_unique_ids(self):
+        """tests for ids"""
         p1 = Place()
         p2 = Place()
         self.assertNotEqual(p1.id, p2.id)
@@ -93,6 +106,7 @@ class TestPlace_to_dict(unittest.TestCase):
     """Unittests for testing to_dict method of the Place class."""
 
     def test_to_dict_contains_correct_keys(self):
+        """tests for dicts"""
         p = Place()
         self.assertIn("id", p.to_dict())
         self.assertIn("created_at", p.to_dict())

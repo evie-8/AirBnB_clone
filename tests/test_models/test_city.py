@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Unittest module for the City Class."""
 
+
 import pep8
 import unittest
 from datetime import datetime
@@ -18,17 +19,28 @@ class Test_city_instances(unittest.TestCase):
     """unittest for the class city"""
 
     def test_for_argument(self):
+        """tests for classs type"""
         k = City
         self.assertEqual(City, type(k()))
         # self.assertIsInstance(k, City)
 
     def test_for_id(self):
+        """tests for id type"""
         self.assertEqual(str, type(City().id))
 
     def test_for_two_cit_id(self):
+        """tests for id uniqueness"""
         c1 = City()
         c2 = City()
         self.assertNotEqual(c1.id, c2.id)
+
+    def test_attr_state_id(self):
+        """test for attribute"""
+        self.assertEqual(str, type(City().state_id))
+
+    def test_attr_name(self):
+        """test for attribute name"""
+        self.assertEqual(str, type(City().name))
 
 
 class TestCity_to_dict(unittest.TestCase):
